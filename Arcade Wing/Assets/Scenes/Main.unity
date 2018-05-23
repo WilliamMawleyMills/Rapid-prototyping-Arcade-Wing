@@ -153,9 +153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93424fdfb9bd8b24ba0f3df4170466ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startEnemies: 10
   timer: 0
   timerLength: 100
   timerAccelerator: 0.1
+  minimumDistance: 100
+  maximumDistance: 150
   enemyPrefab: {fileID: 1075791589329278, guid: 38e388b6c1944264d89a0dda93eb5fe1,
     type: 2}
   player: {fileID: 1590196126}
@@ -299,12 +302,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1451289826}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1590196126}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590196125
 GameObject:
@@ -333,6 +336,7 @@ Transform:
   m_Children:
   - {fileID: 1396492228}
   - {fileID: 1985061497}
+  - {fileID: 1451289830}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
