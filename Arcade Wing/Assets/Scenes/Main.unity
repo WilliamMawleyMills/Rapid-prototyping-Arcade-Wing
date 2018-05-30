@@ -303,7 +303,7 @@ MonoBehaviour:
   timer: 0
   timerLength: 100
   timerAccelerator: 0.1
-  minimumDistance: 100
+  minimumDistance: 150
   maximumDistance: 200
   enemyPrefab: {fileID: 1075791589329278, guid: 38e388b6c1944264d89a0dda93eb5fe1,
     type: 2}
