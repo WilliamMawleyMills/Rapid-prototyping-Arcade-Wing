@@ -301,10 +301,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startEnemies: 1000
   timer: 0
-  timerLength: 100
+  timerLength: 60
   timerAccelerator: 0.1
-  minimumDistance: 150
-  maximumDistance: 200
+  minimumDistance: 450
+  maximumDistance: 600
   enemyPrefab: {fileID: 1075791589329278, guid: 38e388b6c1944264d89a0dda93eb5fe1,
     type: 2}
   player: {fileID: 1590196125}
@@ -616,6 +616,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 7dec3b681c63ffa42b5a45f9c59779d1, type: 3}
+--- !u!114 &1536677834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536677832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a3382691122ea4bb977406c395b33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1590196125
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,10 +695,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca773b4c0bdd4d4180ebf2690bf4b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 5
+  forwardSpeed: 15
   turningSpeed: 2
   maximumVelocity: 100
   self: {fileID: 1590196125}
+  playerSettings: 0
 --- !u!54 &1590196129
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -695,7 +708,7 @@ Rigidbody:
   m_GameObject: {fileID: 1590196125}
   serializedVersion: 2
   m_Mass: 2
-  m_Drag: 0.5
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -943,7 +956,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1788095672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15000005, y: 0, z: 0.50000006}
+  m_LocalPosition: {x: 0.15, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1590196126}
@@ -971,7 +984,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1829506866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15000017, y: 0, z: 0.50000006}
+  m_LocalPosition: {x: -0.15, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1590196126}
