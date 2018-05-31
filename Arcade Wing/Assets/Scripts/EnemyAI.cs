@@ -38,7 +38,6 @@ public class EnemyAI : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        shooter = this.gameObject;
         selfRigidbody = this.GetComponent<Rigidbody>();
     }
 	
@@ -69,21 +68,22 @@ public class EnemyAI : MonoBehaviour {
 
             //create laser at the spawn point facing the same dirrection as the shooter
             GameObject laser1 = Instantiate(laserPrefab, spawnPointOne.position, shooter.transform.rotation) as GameObject;
+            laser1.GetComponent<Laser>().shooter = shooter;
             //Synchronise velocity with shooter so that its speed is relative to the shooter
             laser1.GetComponent<Rigidbody>().AddForce(inheritedVelocity, ForceMode.Impulse);
             //add velocity in direction of shooter
             laser1.GetComponent<Rigidbody>().AddForce(shooter.transform.forward * launchForce, ForceMode.Impulse);
 
-            laser1.GetComponent<Laser>().shooter = shooter;
 
             //create laser at the spawn point facing the same dirrection as the shooter
             GameObject laser2 = Instantiate(laserPrefab, spawnPointTwo.position, this.transform.rotation) as GameObject;
+            laser2.GetComponent<Laser>().shooter = shooter;
             //Synchronise velocity with shooter so that its speed is relative to the shooter
             laser2.GetComponent<Rigidbody>().AddForce(inheritedVelocity, ForceMode.Impulse);
             //add velocity in direction of shooter
             laser2.GetComponent<Rigidbody>().AddForce(shooter.transform.forward * launchForce, ForceMode.Impulse);
 
-            laser2.GetComponent<Laser>().shooter = shooter;
+           
 
             fireOn = false;
         } else if (timer <= 0f)

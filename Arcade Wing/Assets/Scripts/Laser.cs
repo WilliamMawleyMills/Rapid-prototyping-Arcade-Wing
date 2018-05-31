@@ -18,6 +18,7 @@ public class Laser : MonoBehaviour {
     //timer until self destruct
     public float timer = 20;
 
+
     // Use this for initialization
     void Start ()
     {

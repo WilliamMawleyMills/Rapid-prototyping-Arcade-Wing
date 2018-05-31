@@ -5,13 +5,26 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 
     public int health = 100;
-	
-	// Update is called once per frame
-	void Update ()
+    public GameObject self;
+    public GameObject score;
+    public bool enemy = true;
+
+    private void Start()
+    {
+      
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
 		if (health <= 0)
         {
-            Destroy(this.gameObject);
+            if (enemy == true)
+            {
+                score = GameObject.Find("ScoreKeeper");
+                score.GetComponent<ScoreKeeper>().ScoreIncrement(1);
+            }
+            Destroy(self.gameObject);
         }
 	}
 }
