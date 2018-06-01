@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour {
     //define how fast the player should accelerate forward
     public float forwardSpeed = 5f;
     //define how fast the player should turn
-    public float turningSpeed = 0.5f;
+    public float turningSpeed = 200.0f;
     //determine maximum speed
     public float maximumVelocity = 100f;
     //determine what the player is
@@ -110,19 +110,32 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        pitch = XCI.GetAxis(XboxAxis.LeftStickX, controller);
-        yaw = XCI.GetAxis(XboxAxis.LeftStickY, controller);
-        roll = XCI.GetAxis(XboxAxis.RightStickX, controller);
+        Quaternion AddRot = Quaternion.identity;
 
-        Vector3 directionVector = new Vector3(pitch, yaw, roll);
 
-        if (directionVector.magnitude < 0.1f)
+        pitch = XCI.GetAxis(XboxAxis.LeftStickX, controller) * (Time.smoothDeltaTime * turningSpeed);
+        yaw = XCI.GetAxis(XboxAxis.LeftStickY, controller) * (Time.smoothDeltaTime * turningSpeed);
+        roll = XCI.GetAxis(XboxAxis.RightStickX, controller) * (Time.smoothDeltaTime * turningSpeed);
+
+        if (inverted == true)
         {
-            directionVector = previousRotationDirection;
+            AddRot.eulerAngles = new Vector3(yaw, pitch, -roll);
+            playerRigidbody.rotation *= AddRot;
+        } else
+        {
+            AddRot.eulerAngles = new Vector3(-yaw, pitch, -roll);
+            playerRigidbody.rotation *= AddRot;
         }
-        directionVector = directionVector.normalized;
-        previousRotationDirection = directionVector;
-        transform.rotation = Quaternion.LookRotation(directionVector);
+
+        //Vector3 directionVector = new Vector3(pitch, yaw, roll);
+
+        //if (directionVector.magnitude < 0.1f)
+        //{
+        //    directionVector = previousRotationDirection;
+        //}
+        //directionVector = directionVector.normalized;
+        //previousRotationDirection = directionVector;
+        //transform.rotation = Quaternion.LookRotation(directionVector);
 
         //if the maximum speed has not been exceeded in on any axis of velocity
         if (playerRigidbody.velocity.z < maximumVelocity && playerRigidbody.velocity.x < maximumVelocity && playerRigidbody.velocity.y < maximumVelocity)

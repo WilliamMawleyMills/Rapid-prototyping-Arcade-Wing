@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour {
     //what its looking at right now
     private GameObject target;
     //how close they should get to target before they change targets
-    public float targetDistance = 10f;
+    public float targetDistance = 30f;
 
     //how many seconds until the next time enemy can shoot
     public float timer;
@@ -97,9 +97,9 @@ public class EnemyAI : MonoBehaviour {
            
 
             fireOn = false;
-        } else if (timer <= 0f)
+        } else if (timer <= 0f && target == player)
         {
-            timerLength = Random.Range(1, 10);
+            timerLength = Random.Range(0.2f, 3f);
             timer = timerLength;
             fireOn = true;
         }

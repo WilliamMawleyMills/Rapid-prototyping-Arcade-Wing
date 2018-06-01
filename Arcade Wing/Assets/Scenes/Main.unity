@@ -401,7 +401,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 554810991}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 500}
+  m_LocalPosition: {x: 0, y: 0, z: 1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1234937027}
@@ -429,7 +429,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562402445}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -500, z: 0}
+  m_LocalPosition: {x: 0, y: -1000, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1234937027}
@@ -563,8 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93424fdfb9bd8b24ba0f3df4170466ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startEnemies: 200
-  roundEnemies: 20
+  startEnemies: 10
+  roundEnemies: 5
   timer: 0
   timerLength: 60
   timerAccelerator: 0.1
@@ -699,7 +699,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 956920440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 500, z: 0}
+  m_LocalPosition: {x: 0, y: 1000, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1234937027}
@@ -789,7 +789,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1144480053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500, y: 0, z: 0}
+  m_LocalPosition: {x: 1000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1234937027}
@@ -893,7 +893,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1279507526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -500}
+  m_LocalPosition: {x: 0, y: 0, z: -1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1234937027}
@@ -1168,6 +1168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb7e4d167e70f743be4bd4a8958ff58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
   launchForce: 100
   spawnPointOne: {fileID: 1788095673}
   spawnPointTwo: {fileID: 1829506867}
@@ -1175,6 +1176,7 @@ MonoBehaviour:
     type: 2}
   shooter: {fileID: 1590196125}
   shooterCollider: {fileID: 1536677832}
+  timerLength: 0.15
 --- !u!114 &1590196128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,11 +1188,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca773b4c0bdd4d4180ebf2690bf4b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
   forwardSpeed: 15
-  turningSpeed: 2
-  maximumVelocity: 100
+  turningSpeed: 200
+  maximumVelocity: 50
   self: {fileID: 1590196125}
-  playerSettings: 0
+  inverted: 0
+  previousRotationDirection: {x: 0, y: 0, z: 1}
 --- !u!54 &1590196129
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1301,7 +1305,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1752778899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: 0}
+  m_LocalPosition: {x: -1000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1234937027}

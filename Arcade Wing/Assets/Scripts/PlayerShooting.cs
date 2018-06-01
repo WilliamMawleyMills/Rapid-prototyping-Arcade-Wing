@@ -28,7 +28,7 @@ public class PlayerShooting : MonoBehaviour
     private bool fireOn = true;
 
     //how many seconds until the next time player can shoot
-    public float timer;
+    private float timer;
     //how long the timer is when it resets
     public float timerLength = 0.3f;
 
@@ -71,7 +71,6 @@ public class PlayerShooting : MonoBehaviour
         }
         else if (timer <= 0f)
         {
-            timerLength = Random.Range(1, 10);
             timer = timerLength;
             fireOn = true;
         }
