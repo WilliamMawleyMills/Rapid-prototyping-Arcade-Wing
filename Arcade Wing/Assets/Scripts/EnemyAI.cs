@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour {
 
-    //defines player to look at
+    //defines player to target
     public GameObject player;
     //movement speed
     public float forwardSpeed = 10;
@@ -30,6 +30,11 @@ public class EnemyAI : MonoBehaviour {
     //defines the velocity of the shooter
     private Vector3 inheritedVelocity;
 
+    //what its looking at right now
+    private GameObject target;
+    //how close they should get to target before they change targets
+    public float targetDistance = 10f;
+
     //how many seconds until the next time enemy can shoot
     public float timer;
     //how long the timer is when it resets
@@ -39,12 +44,18 @@ public class EnemyAI : MonoBehaviour {
     void Start ()
     {
         selfRigidbody = this.GetComponent<Rigidbody>();
+        target = player;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        transform.LookAt(player.transform);
+
+        transform.LookAt(target.transform);
+        if (Vector3.Distance (shooter.transform.position, target.transform.position) < targetDistance)
+        {
+            NavigationCycle(Random.Range(1, 8));
+        }
         //if the maximum speed has not been exceeded in on any axis of velocity
         if (selfRigidbody.velocity.z < maximumVelocity && selfRigidbody.velocity.x < maximumVelocity && selfRigidbody.velocity.y < maximumVelocity)
         {
@@ -93,5 +104,44 @@ public class EnemyAI : MonoBehaviour {
             fireOn = true;
         }
         timer -= 1 * Time.smoothDeltaTime;
+    }
+
+    //Navigation Cycle()
+    //called if the enemy is too close to its target in order to find a new target
+    //
+    //Param:
+    //  int rand - a random number to indicate what position to target.
+    //Return:
+    //  void
+    private void NavigationCycle(int rand)
+    {
+        if (rand == 1)
+        {
+            target = player;
+        }
+        if (rand == 2)
+        {
+            target = GameObject.Find("Nav1");
+        }
+        if (rand == 3)
+        {
+            target = GameObject.Find("Nav2");
+        }
+        if (rand == 4)
+        {
+            target = GameObject.Find("Nav3");
+        }
+        if (rand == 5)
+        {
+            target = GameObject.Find("Nav4");
+        }
+        if (rand == 6)
+        {
+            target = GameObject.Find("Nav5");
+        }
+        if (rand == 7)
+        {
+            target = GameObject.Find("Nav6");
+        }
     }
 }

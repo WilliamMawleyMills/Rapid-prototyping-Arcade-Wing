@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176185085018648}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0, z: 0.5}
+  m_LocalPosition: {x: 1.5, y: 0, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4350364067575932}
@@ -132,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075791589329278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -13.720543, y: 9.6679735, z: 11.880573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4931489434537234}
@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 1475756879549568}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4559599800173164}
   m_Father: {fileID: 4350364067575932}
@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1832270716389946}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0, z: 0.5}
+  m_LocalPosition: {x: -1.5, y: 0, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4350364067575932}
@@ -346,7 +346,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 5
+  m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -382,8 +382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a3382691122ea4bb977406c395b33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 1
   self: {fileID: 1075791589329278}
+  score: {fileID: 0}
+  enemy: 1
 --- !u!114 &114831136671126468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -396,9 +398,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  forwardSpeed: 5
+  forwardSpeed: 20
   turningSpeed: 2
-  maximumVelocity: 50
+  maximumVelocity: 110
   selfRigidbody: {fileID: 54613488896257628}
   launchForce: 20
   spawnPointOne: {fileID: 4069219842977112}
@@ -406,5 +408,6 @@ MonoBehaviour:
   laserPrefab: {fileID: 1752518391944640, guid: 50607290feab2164c877b5a14a8b96d5,
     type: 2}
   shooter: {fileID: 1475756879549568}
+  targetDistance: 10
   timer: 0
   timerLength: 5
