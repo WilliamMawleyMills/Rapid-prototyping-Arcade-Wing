@@ -120,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176185085018648}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 3.5}
+  m_LocalPosition: {x: 0.15, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4350364067575932}
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075791589329278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -151.28317, y: 83.42004, z: -62.69691}
+  m_LocalPosition: {x: 72.021904, y: 65.16974, z: -15.991636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4931489434537234}
@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 1475756879549568}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4559599800173164}
   m_Father: {fileID: 4350364067575932}
@@ -177,7 +177,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1832270716389946}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 3.5}
+  m_LocalPosition: {x: -0.15, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4350364067575932}
@@ -374,15 +374,21 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
-        value: 1
+        time: 0.008850098
+        value: 0
         inSlope: 0
         outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.15044838
+        value: 1
+        inSlope: -0.32305717
+        outSlope: -0.32305717
         tangentMode: 0
       - serializedVersion: 2
         time: 0.99115855
@@ -440,7 +446,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
-  m_Range: 20
+  m_Range: 1
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -492,16 +498,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  forwardSpeed: 20
+  forwardSpeed: 5
   turningSpeed: 2
-  maximumVelocity: 60
+  maximumVelocity: 16
   selfRigidbody: {fileID: 54613488896257628}
-  launchForce: 20
+  launchForce: 200
   spawnPointOne: {fileID: 4069219842977112}
   spawnPointTwo: {fileID: 4924740387228558}
   laserPrefab: {fileID: 1752518391944640, guid: 50607290feab2164c877b5a14a8b96d5,
     type: 2}
-  shooter: {fileID: 1475756879549568}
-  targetDistance: 30
+  shooter: {fileID: 1075791589329278}
+  shooterCollider: {fileID: 1475756879549568}
+  target: {fileID: 0}
+  targetDistance: 20
   timer: 0
   timerLength: 5

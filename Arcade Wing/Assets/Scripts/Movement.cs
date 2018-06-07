@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour {
     //define how fast the player should accelerate forward
     public float forwardSpeed = 5f;
     //define how fast the player should turn
-    public float turningSpeed = 200.0f;
+    public float turningSpeed = 0.1f;
     //determine maximum speed
     public float maximumVelocity = 100f;
     //determine what the player is
@@ -108,7 +108,7 @@ public class Movement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         Quaternion AddRot = Quaternion.identity;
 
@@ -138,7 +138,9 @@ public class Movement : MonoBehaviour {
         //transform.rotation = Quaternion.LookRotation(directionVector);
 
         //if the maximum speed has not been exceeded in on any axis of velocity
-        if (playerRigidbody.velocity.z < maximumVelocity && playerRigidbody.velocity.x < maximumVelocity && playerRigidbody.velocity.y < maximumVelocity)
+        if (playerRigidbody.velocity.z < maximumVelocity && playerRigidbody.velocity.z > -maximumVelocity && 
+            playerRigidbody.velocity.x < maximumVelocity && playerRigidbody.velocity.x > -maximumVelocity && 
+            playerRigidbody.velocity.y < maximumVelocity && playerRigidbody.velocity.y > -maximumVelocity)
         {
             //add force to player forward
             playerRigidbody.AddForce(self.transform.forward * forwardSpeed, ForceMode.Impulse);

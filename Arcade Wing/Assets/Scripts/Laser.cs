@@ -16,7 +16,7 @@ public class Laser : MonoBehaviour {
     //storage for health get component
     public Health hit;
     //timer until self destruct
-    public float timer = 20;
+    public float timer = 5;
 
 
     // Use this for initialization
@@ -30,7 +30,9 @@ public class Laser : MonoBehaviour {
 	void Update ()
     {
         //if the laser isn't yet at maximum speed on any axis of movement  
-        if (self.velocity.z < maximumVelocity && self.velocity.x < maximumVelocity && self.velocity.y < maximumVelocity)
+        if (self.velocity.z < maximumVelocity && self.velocity.z > -maximumVelocity &&
+            self.velocity.x < maximumVelocity && self.velocity.x > -maximumVelocity &&
+            self.velocity.y < maximumVelocity && self.velocity.y > -maximumVelocity)
         {
             //add acceleration to movement force
             self.AddForce(this.transform.forward * acceleration, ForceMode.Impulse);

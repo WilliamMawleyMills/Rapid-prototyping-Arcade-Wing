@@ -159,7 +159,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!108 &108111547926320426
 Light:
   m_ObjectHideFlags: 1
@@ -209,9 +209,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shooter: {fileID: 0}
   acceleration: 20
-  maximumVelocity: 200
+  maximumVelocity: 30
   hit: {fileID: 0}
-  timer: 20
+  timer: 5
 --- !u!135 &135212454717995060
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -232,7 +232,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1600875762367602}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

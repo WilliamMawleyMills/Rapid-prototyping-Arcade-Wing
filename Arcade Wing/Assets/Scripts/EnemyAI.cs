@@ -27,11 +27,13 @@ public class EnemyAI : MonoBehaviour {
     public GameObject laserPrefab;
     //defines the object firing the laser
     public GameObject shooter;
+    //ridgidbody of what's shooting the laser
+    public GameObject shooterCollider;
     //defines the velocity of the shooter
     private Vector3 inheritedVelocity;
 
     //what its looking at right now
-    private GameObject target;
+    public GameObject target;
     //how close they should get to target before they change targets
     public float targetDistance = 30f;
 
@@ -48,16 +50,18 @@ public class EnemyAI : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
 
         transform.LookAt(target.transform);
         if (Vector3.Distance (shooter.transform.position, target.transform.position) < targetDistance)
         {
-            NavigationCycle(Random.Range(1, 8));
+            NavigationCycle(Random.Range(1, 20));
         }
         //if the maximum speed has not been exceeded in on any axis of velocity
-        if (selfRigidbody.velocity.z < maximumVelocity && selfRigidbody.velocity.x < maximumVelocity && selfRigidbody.velocity.y < maximumVelocity)
+        if (selfRigidbody.velocity.z < maximumVelocity && selfRigidbody.velocity.z > -maximumVelocity &&
+            selfRigidbody.velocity.x < maximumVelocity && selfRigidbody.velocity.x > -maximumVelocity &&
+            selfRigidbody.velocity.y < maximumVelocity && selfRigidbody.velocity.y > -maximumVelocity)
         {
             //add force to player forward
             selfRigidbody.AddForce(this.transform.forward * forwardSpeed, ForceMode.Impulse);
@@ -79,7 +83,7 @@ public class EnemyAI : MonoBehaviour {
 
             //create laser at the spawn point facing the same dirrection as the shooter
             GameObject laser1 = Instantiate(laserPrefab, spawnPointOne.position, shooter.transform.rotation) as GameObject;
-            laser1.GetComponent<Laser>().shooter = shooter;
+            laser1.GetComponent<Laser>().shooter = shooterCollider;
             //Synchronise velocity with shooter so that its speed is relative to the shooter
             laser1.GetComponent<Rigidbody>().AddForce(inheritedVelocity, ForceMode.Impulse);
             //add velocity in direction of shooter
@@ -88,7 +92,7 @@ public class EnemyAI : MonoBehaviour {
 
             //create laser at the spawn point facing the same dirrection as the shooter
             GameObject laser2 = Instantiate(laserPrefab, spawnPointTwo.position, this.transform.rotation) as GameObject;
-            laser2.GetComponent<Laser>().shooter = shooter;
+            laser2.GetComponent<Laser>().shooter = shooterCollider;
             //Synchronise velocity with shooter so that its speed is relative to the shooter
             laser2.GetComponent<Rigidbody>().AddForce(inheritedVelocity, ForceMode.Impulse);
             //add velocity in direction of shooter
@@ -99,7 +103,7 @@ public class EnemyAI : MonoBehaviour {
             fireOn = false;
         } else if (timer <= 0f && target == player)
         {
-            timerLength = Random.Range(0.2f, 3f);
+            timerLength = Random.Range(0.2f, 0.5f);
             timer = timerLength;
             fireOn = true;
         }
@@ -117,31 +121,35 @@ public class EnemyAI : MonoBehaviour {
     {
         if (rand == 1)
         {
-            target = player;
-        }
-        if (rand == 2)
-        {
             target = GameObject.Find("Nav1");
         }
-        if (rand == 3)
+        else if (rand == 2)
         {
             target = GameObject.Find("Nav2");
         }
-        if (rand == 4)
+        else if (rand == 3)
         {
             target = GameObject.Find("Nav3");
         }
-        if (rand == 5)
+        else if (rand == 4)
         {
             target = GameObject.Find("Nav4");
         }
-        if (rand == 6)
+        else if (rand == 5)
         {
             target = GameObject.Find("Nav5");
         }
-        if (rand == 7)
+        else if (rand == 6)
         {
             target = GameObject.Find("Nav6");
+        }
+        else if (rand >= 7)
+        {
+            target = player;
+        }
+        else
+        {
+            NavigationCycle(Random.Range(1, 8));
         }
     }
 }
