@@ -485,6 +485,8 @@ MonoBehaviour:
   health: 1
   self: {fileID: 1075791589329278}
   score: {fileID: 0}
+  explosionPrefab: {fileID: 1818150820400326, guid: 1e34266f85b175447a47d73b052c96e0,
+    type: 2}
   enemy: 1
 --- !u!114 &114831136671126468
 MonoBehaviour:
