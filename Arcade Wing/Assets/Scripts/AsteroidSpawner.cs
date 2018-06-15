@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour {
 
-    //
+    //the prefab set to be spawned
     public GameObject asteroidPrefab;
-    //
+    //the object this script is attached to (said object is intended to be placed at 0,0,0)
     public GameObject self;
     //the minimum distance from the player an enemy can spawn
     public float minimumDistance = 500f;
@@ -14,7 +14,7 @@ public class AsteroidSpawner : MonoBehaviour {
     public float maximumDistance = 1000f;
     //where the enemy will spawn
     private Vector3 spawnLocation;
-    //
+    //Number of asteroids to be spawned
     public int spawnAmount = 100;
 
     // Use this for initialization

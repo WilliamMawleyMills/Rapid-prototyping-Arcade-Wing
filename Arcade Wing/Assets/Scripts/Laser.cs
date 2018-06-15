@@ -43,6 +43,15 @@ public class Laser : MonoBehaviour {
         }
         timer -= 1 * Time.smoothDeltaTime;
     }
+
+    //OnTriggerEnter()
+    //called when this hits an object with a Health Script
+    //
+    //Param:
+    // collider other - what the object that has entered the trigger is
+    //
+    //Return:
+    //  void
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("Hit" + other.ToString());

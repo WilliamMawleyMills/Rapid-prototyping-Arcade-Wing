@@ -5,6 +5,8 @@ using XboxCtrlrInput;
 
 public class Movement : MonoBehaviour {
 
+
+    //the controller used for input
     public XboxController controller;
 
     //define how fast the player should accelerate forward
@@ -18,11 +20,13 @@ public class Movement : MonoBehaviour {
     //rigidbody data storage
     private Rigidbody playerRigidbody;
 
+    //a variable that retains direction the player is pointing if the control stick is centred, so that it doesn't revert to zero rotation
+    public Vector3 previousRotationDirection = Vector3.forward;
+
+    //a variable determining if the up/down movement should be inverted 
     public bool inverted = true;
 
-    private float inversionFactor;
-
-    public Vector3 previousRotationDirection = Vector3.forward;
+    // private float inversionFactor;
 
     //control scheme data
     //public enum controls
@@ -37,17 +41,17 @@ public class Movement : MonoBehaviour {
     //public controls playerSettings;
 
     //Control key for pitch up
-        //private KeyCode pitchUp;
+    //private KeyCode pitchUp;
     //control key for pitch down
-        //private KeyCode pitchDown;
+    //private KeyCode pitchDown;
     //control key for yaw right
-        //private KeyCode yawRight;
+    //private KeyCode yawRight;
     //control key for yaw left
-        //private KeyCode yawLeft;
+    //private KeyCode yawLeft;
     //control key for roll right
-        //private KeyCode rollRight;
+    //private KeyCode rollRight;
     //control key for roll left
-        //private KeyCode rollLeft;
+    //private KeyCode rollLeft;
 
     private float pitch;
     private float yaw;

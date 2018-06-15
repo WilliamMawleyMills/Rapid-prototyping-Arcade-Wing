@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ResetButton : MonoBehaviour {
 
+    //The Xbox controller being used as input
     public XboxController controller;
 
     // Update is called once per frame

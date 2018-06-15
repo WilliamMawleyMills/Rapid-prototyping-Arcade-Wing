@@ -5,6 +5,7 @@ using XboxCtrlrInput;
 
 public class PlayerShooting : MonoBehaviour
 {
+    //the controller used for input
     public XboxController controller;
 
     //describes the launch force to add to velocity
